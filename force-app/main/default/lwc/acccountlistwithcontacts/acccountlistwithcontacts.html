@@ -1,0 +1,48 @@
+<template>
+    <lightning-card title="Account List With Contacts">
+        <template if:true={accounts}>
+            <lightning-datatable
+                data={accounts}
+                columns={columns}
+                key-field="Id"
+                hide-checkbox-column="true">
+            </lightning-datatable>
+        </template>
+        
+        <template if:true={modalAccount}>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+            <div role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open slds-modal_medium">
+                <div class="slds-modal__container">
+                    <div class="slds-modal__content slds-p-around_medium">
+                        <template if:true={modalAccount}>
+                            <p>Name: {modalAccount.Name}</p>
+                            <p>Industry: {modalAccount.Industry}</p>   
+                            <p>Phone: {modalAccount.Phone}</p>     <!-- Fixed typo: modalAccount.Phone -->
+                            <p>Website: {modalAccount.Website}</p>   
+                        </template>
+                        
+                        <template if:true={modalContacts}>
+                            <div class="slds-backdrop slds-backdrop_open"></div>
+                            <div role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open slds-modal_medium">
+                                <div class="slds-modal__container">
+                                    <div class="slds-modal__content slds-p-around_medium">
+                                        <template if:true={modalContacts}>
+                                            <p>Contact Name: {contact.Name}</p> <!-- Assuming contact is defined somewhere -->
+                                        </template>
+                                        
+                                        <template if:true={noContacts}>
+                                            <p>There are no contact records for this account.</p>
+                                        </template>
+                                    </div>
+                                    <footer class="slds-modal__footer">
+                                        <lightning-button label="Close" onclick={closeModal}></lightning-button>
+                                    </footer>
+                                </div>
+                            </div>
+                        </template>
+                    </div>
+                </div>
+            </div>
+        </template>
+    </lightning-card>
+</template>

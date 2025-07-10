@@ -1,0 +1,60 @@
+<template>
+    <!-- Checkout Page Card -->
+    <lightning-card variant="Narrow" icon-name="standard:checkout">
+        <!-- Title -->
+        <div slot="title">
+            <h2 class="slds-text-heading_small slds-m-bottom_medium">Page</h2>
+        </div>
+        
+        <!-- Display DataTable if showDataTable is true -->
+        <template if:true={showDataTable}>
+            <div class="slds-p-around_medium">
+                <!-- Display DataTable -->
+                <lightning-datatable
+                    key-field="id"
+                    data={cartList} 
+                    columns={columns}
+                    hide-checkbox-column="true"
+                    show-row-number-column="true"
+                    onrowaction={callRowAction} 
+                ></lightning-datatable>
+            </div>
+            <hr class="slds-m-top_medium slds-m-bottom_large">
+            <!-- Display Total Price, SGST, and CGST -->
+            <div class="slds-text-heading_small slds-p-around_medium">
+                <p>Total Price: <lightning-formatted-number value={totalPayment} format-style="currency" currency-code="INR"></lightning-formatted-number></p>
+                <p>SGST: <lightning-formatted-number value={sgst} format-style="currency" currency-code="INR"></lightning-formatted-number></p>
+                <p>CGST: <lightning-formatted-number value={cgst} format-style="currency" currency-code="INR"></lightning-formatted-number></p>
+            </div>
+            <hr class="slds-m-top_medium slds-m-bottom_large">
+            <!-- Checkout Button -->
+            <div class="slds-p-horizontal_medium slds-p-bottom_medium slds-align_absolute-center">
+                <lightning-button variant="brand" label="Proceed to Payment" title="checkout" onclick={handleEvent}></lightning-button>
+            </div>
+        </template>
+
+        <!-- Show Checkout Form if showCheckOut is true -->
+        <template if:true={showCheckOut}>
+            <div class="slds-p-around_medium">
+                <!-- Display Total Price -->
+                <p class="slds-text-heading_small slds-m-bottom_medium">Total Price: <lightning-formatted-number value={totalPayment} format-style="currency" currency-code="INR"></lightning-formatted-number></p>
+                <!-- Payment Form -->
+                <h3 class="slds-text-heading_small slds-m-bottom_medium">Payment Details</h3>
+                <div class="slds-grid slds-gutters">
+                    <div class="slds-col slds-size_6-of-12 slds-p-horizontal_medium">
+                        <lightning-input label="Name" type="text" placeholder="Enter your Name" required></lightning-input>
+                        <lightning-input label="Card Number" type="text" placeholder="Enter card number" required></lightning-input>
+                    </div>
+                    <div class="slds-col slds-size_6-of-12 slds-p-horizontal_medium">
+                        <lightning-input label="CVV" type="password" placeholder="Enter CVV" required></lightning-input>
+                        <lightning-input label="Expiry Date" type="text" placeholder="MM/YY" required></lightning-input>
+                    </div>
+                </div>
+                <!-- Submit Button -->
+                <div class="slds-p-top_medium slds-align_absolute-center">
+                    <lightning-button label="Submit Payment" onclick={handleSubmit} variant="brand"></lightning-button>
+                </div>
+            </div>
+        </template>
+    </lightning-card>
+</template>

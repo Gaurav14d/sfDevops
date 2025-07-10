@@ -1,0 +1,66 @@
+<template>
+    <template if:true={firstScreen}>
+
+        <lightning-card>
+            <div slot="title">
+                <h2 class="slds-text-heading_small slds-m-bottom_medium">Product</h2>
+            </div>
+        
+            <!-- Header with Cart Icon -->
+            <div slot="actions">
+                <lightning-button-icon size="large" icon-name="standard:cart" variant="brand" alternative-text="My Cart" title="cart" onclick={handleClick}></lightning-button-icon>
+            </div>
+        
+            <!-- Footer Navigation Buttons -->
+            <div slot="footer">
+                <lightning-button variant="brand" label="Previous" title="Previous" onclick={handleClick} disabled={handleDisablePrevious}></lightning-button>
+                <lightning-button variant="brand" label="Next" title="Next" onclick={handleClick} disabled={handleDisableNext}></lightning-button>
+            </div>
+        
+            <div>
+                <!-- Product Grid -->
+                <div class="slds-box slds-p-around_none slds-m-top_x-small slds-m-bottom_medium slds-m-horizontal_none">
+            
+                    <!-- Lightning Layout for Product Display -->
+                    <lightning-layout horizontal-align="center" multiple-rows="true" pull-to-boundary="small" vertical-align="start">
+                        <template if:true={productToDisplay}>
+                            <template for:each={productToDisplay} for:item="productRecord">
+                                <lightning-layout-item padding="around-small" key={productRecord.Id} size="3" class="slds-box slds-m-around_small custom-product-card">
+                                    <!-- Product Image -->
+                                    <div>
+                                        <img src={productRecord.image}/>
+                                    </div>
+                                    <!-- Product Details -->
+                                    <div class="slds-border_top">
+                                        <br/><br/>
+                                        <!-- Product Title -->
+                                        Produt Title <br/>
+                                        <h1 class="slds-text-heading_medium slds-m-bottom_medium">{productRecord.name}</h1>
+                                        <!-- Product Price -->
+                                        Product Price<br/>
+                                        <lightning-formatted-number value={productRecord.price}></lightning-formatted-number>
+                                    </div>
+                                    <!-- Quantity Control -->
+            
+                                        <lightning-button-icon size="small" icon-name="utility:dash" variant="brand-outline" alternative-text="Remove" data-id={productRecord.Id} title="Remove" class="slds-m-left_xx-small" onclick={handleClick}></lightning-button-icon>
+                                        <div class="slds-p-left_x-small slds-p-right_xxx-small"><b>{productRecord.quantity}</b></div>
+                                        <lightning-button-icon size="small" icon-name="utility:add" variant="brand-outline" alternative-text="Add" data-id={productRecord.Id} title="Add" class="slds-m-left_xx-small" onclick={handleClick}></lightning-button-icon>
+                                
+                                    <!-- Add to Cart Button -->
+                                    <div class="slds-align_absolute-left slds-align_absolute-center">
+                                        <lightning-button variant="brand" label="Add To Cart" data-id={productRecord.Id} value={productRecord.quantity} title="AddToCart" name={productRecord.name} onclick={handleClick} class="slds-m-left_x-small"></lightning-button>
+                                    </div>   
+                                </lightning-layout-item>  
+                            </template>
+                        </template>
+                    </lightning-layout>
+                </div>
+            </div>
+        </lightning-card>
+    </template> 
+
+    <!-- Checkout Screen -->
+    <template if:true={secondScreen}>
+        <div><c-new-checkout-page cart-list={addToCart}></c-new-checkout-page></div>
+    </template>
+</template>

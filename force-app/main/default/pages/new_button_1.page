@@ -1,0 +1,9 @@
+<apex:page >
+<apex:form >
+    <apex:commandButton value="click" action="https://www.youtube.com/playlist?list=PL-gW8Fj5TGrp0G551dN9W3EZVI2UzJq9v"/>
+    <apex:commandButton value="DisabledButton" disabled="true"/>    
+    <apex:commandButton value="MyStyle" style="background:2000px;color:yellow;width:4000;"/>
+    <apex:commandButton value="Rendered" rendered="false"/>
+    </apex:form>
+
+</apex:page>

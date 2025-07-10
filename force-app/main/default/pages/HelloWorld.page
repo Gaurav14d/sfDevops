@@ -1,0 +1,6 @@
+<apex:page showHeader="True">
+    Student Name   <br/>
+    Student Age    <br/>
+    Student Branch <br/>
+    Student Class  <br/>
+</apex:page>

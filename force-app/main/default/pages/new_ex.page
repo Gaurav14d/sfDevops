@@ -1,0 +1,9 @@
+<apex:page >
+    <apex:sectionHeader title="Gaurav Dubey" subtitle="This is my name" description="Nothing"/>
+
+    <apex:form >
+        student name <br/> <br/>
+        student class <br/> <br/>
+        student age <br/> <br/>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,21 @@
+<apex:page standardController="Opportunity">
+    <apex:sectionheader title="Opportunity" subtitle="New Opportunity">
+        <apex:form >
+            <apex:pageBlock title="Opportunity Edit">
+                <apex:pageBlockButtons location="both" dir="ltr">
+                    <apex:commandButton value="save"/>
+                    <apex:commandButton value="save&New"/>
+                    <apex:commandButton value="cancel"/>
+                </apex:pageBlockButtons>
+               <apex:pageblock title="Opportunity Information">
+                   <apex:pageBlockSection >
+                       <apex:inputfield value="{!Opportunity.Name}"/>
+                        <apex:inputfield value="{!Opportunity.Amount}"/>
+                        <apex:inputfield value="{!Opportunity.CloseDate}"/>
+                        <apex:inputfield value="{!Opportunity.Type}"/>
+                   </apex:pageBlockSection>
+                 </apex:pageBlock> 
+            </apex:pageBlock>
+        </apex:form>
+          </apex:sectionheader>
+</apex:page>

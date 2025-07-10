@@ -1,0 +1,23 @@
+<template>
+    <!-- Header section with cart button -->
+    <div class="header">
+        <lightning-button label="Cart" variant="brand" onclick={goToCart}></lightning-button>
+    </div>
+
+    <!-- Main section with datatable -->
+    <div class="main">
+        <lightning-datatable
+            key-field="id"
+            data={dataTableData}
+            columns={columns}
+            hide-checkbox-column="true">
+        </lightning-datatable>
+    </div>
+
+    <!-- Quantity section -->
+    <div class="quantity-section">
+        <lightning-button label="-" variant="brand" onclick={decrementQuantity}></lightning-button>
+        <div class="quantity">{quantity}</div>
+        <lightning-button label="+" variant="brand" onclick={incrementQuantity}></lightning-button>
+    </div>
+</template>

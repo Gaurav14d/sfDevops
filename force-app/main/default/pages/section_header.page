@@ -1,0 +1,8 @@
+<apex:page >
+    
+    <apex:form >
+        student name <br/> <br/>
+        student class <br/> <br/>
+        student age <br/> <br/>
+    </apex:form>
+</apex:page>

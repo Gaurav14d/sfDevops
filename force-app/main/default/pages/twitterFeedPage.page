@@ -1,0 +1,5 @@
+<apex:page lightningStylesheets="true" docType="HTML-5.0">
+<a class="twitter-timeline" data-link-color="#19CF86"
+       href="{!'https://twitter.com/' + $CurrentPage.parameters.twitterHandle }"></a>
+<script src="https://platform.twitter.com/widgets.js" charset="utf-8" />
+</apex:page>

@@ -1,0 +1,34 @@
+<!-- How many ways we can display the record in list view?
+PageBlock Table, DataTable, DataList, Repeat.-->
+<apex:page standardController="Opportunity" recordSetVar="items">
+   <apex:tabpanel >
+       <apex:tab label="Page Block Table" labelWidth="100px">
+           <apex:pageBlock >
+           <apex:pageBlockTable value="{!items}" var="o">
+               <apex:column value="{!o.Name}"/>
+               <apex:column value="{!o.StageName}"/>        
+               <apex:column value="{!o.CloseDate}"/>
+               <apex:column value="{!o.Amount}"/>
+               </apex:pageBlockTable>
+           </apex:pageBlock>          
+       </apex:tab>
+       <apex:tab label="Data Table" labelWidth="100px">
+         <apex:dataTable value="{!items}" var="o">
+             <apex:column value="{!o.Name}"/>
+              <apex:column value="{!o.StageName}"/>
+              <apex:column value="{!o.CloseDate}"/>
+              <apex:column value="{!o.Amount}"/>
+           </apex:dataTable>
+       </apex:tab>
+       <apex:tab label="DataList" labelWidth="100px">
+           <apex:DataList value="{!items}" var="o">
+            {!o.name}
+           </apex:DataList>     
+       </apex:tab>
+       <apex:tab label="Repeat" labelWidth="100px">
+           <apex:repeat value="{!items}" var="o">
+              {!o.name}                                 
+           </apex:repeat>
+       </apex:tab>
+    </apex:tabpanel>
+</apex:page>

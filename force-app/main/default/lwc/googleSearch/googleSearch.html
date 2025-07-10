@@ -1,0 +1,17 @@
+<!-- googleSearch.html -->
+<template>
+    <lightning-card title="Google Search">
+        <div class="slds-p-around_medium">
+            <lightning-input type="text" label="Search" variant = "brand" value={searchQuery} onchange={handleInput}></lightning-input>
+            <lightning-button label="Search" onclick={handleSearch} class="slds-m-top_small"></lightning-button>
+            <template if:true={results}>
+                <template for:each={results} for:item="result">
+                    <div key={result.title} class="slds-box slds-m-top_small">
+                        <h3><a href={result.link} target="_blank">{result.title}</a></h3>
+                        <p>{result.snippet}</p>
+                    </div>
+                </template>
+            </template>
+        </div>
+    </lightning-card>
+</template>

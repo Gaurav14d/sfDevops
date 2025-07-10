@@ -1,0 +1,18 @@
+.slds-form_horizontal .slds-form__item {
+    display: inline-block;
+    margin-right: 20px;
+    vertical-align: top; 
+}
+
+.slds-form_horizontal .slds-form__item:last-child {
+    margin-right: 0;
+}
+
+.slds-form__row {
+    display: flex;
+    align-items: center; 
+}
+
+.slds-col {
+    flex: 1; 
+}

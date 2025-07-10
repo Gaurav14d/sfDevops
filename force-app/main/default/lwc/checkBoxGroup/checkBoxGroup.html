@@ -1,0 +1,15 @@
+<template>
+    <lightning-checkbox-group name="CheckBox Group"
+                              label="Checkbox Group" 
+                              options={options}
+                              value={value} 
+                              onchange={handleChange}></lightning-checkbox-group>
+    <p>Selected values are: {SelectedValues}</p>
+    <!--Click to dial-->
+    <div class="slds-m-around_medium">
+        <h1 class="slds-text-heading_small">Basic Click to dial Component</h1>
+        <p class="slds-text-body_regular">A lightning-click-to-dial component renders a formatted phone number as click-to-dial enabled or disabled for Open CTI and Voice. This example creates three click-to-dial enabled phone numbers.</p>
+    </div>
+    <p><lightning-click-to-dial value="7687876789"></lightning-click-to-dial></p>
+    <p><lightning-click-to-dial value="2387547839"></lightning-click-to-dial></p>
+</template>
