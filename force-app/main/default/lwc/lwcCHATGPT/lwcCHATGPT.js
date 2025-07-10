@@ -1,5 +1,5 @@
 import { LightningElement, api, track } from 'lwc';
-import getChatGPTResponse from '@salesforce/apex/ChatGPTService.getChatGPTResponse';
+//import getChatGPTResponse from '@salesforce/apex/ChatGPTService.getChatGPTResponse';
 
 export default class LwcChatGPT extends LightningElement {
     @api question = ' What is salesforce';
