@@ -1,0 +1,10 @@
+<apex:page controller="SOQL_Example">
+    <apex:pageBlock title="Account Records">
+    	<apex:pageBlockTable value="{!accounts}" var="a">
+        	<apex:column value="{!a.Name}"/>
+            <apex:column value="{!a.Industry}"/>
+            <apex:column value="{!a.Rating}"/>
+            
+        </apex:pageBlockTable>
+    </apex:pageBlock>
+</apex:page>

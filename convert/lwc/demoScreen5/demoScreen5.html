@@ -1,0 +1,56 @@
+<template>
+    <lightning-card title="Salesforce UI 5" icon-name="custom:custom63">
+
+       <!-- Input Section in One Line -->
+           <div class="slds-grid slds-wrap slds-gutters">
+            <!-- Approved By Field -->
+            <div class="slds-col slds-size_3-of-12 slds-p-right_small slds-col_bump-left">
+                <lightning-input label="Approved By" value={approvedBy} onchange={handleInputChange}></lightning-input>
+            </div>
+            <!-- Virtual Account Number Field -->
+            <div class="slds-col slds-size_3-of-12 slds-p-right_xx-small slds-col_bump-left">
+                <lightning-input label="Virtual Account Number" value={vanNumber} onchange={handleInputChange}></lightning-input>
+            </div>
+            <!-- Search Button -->
+            <div class="slds-col slds-size_2-of-12 slds-align_absolute-center">
+                <lightning-button label="Search" variant="brand" onclick={handleSearch}></lightning-button>
+            </div>
+        </div>
+        <!-- Table Section -->
+        <div class="slds-m-top_medium">
+            <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+                <thead>
+                    <tr>
+                        <th>Date of Request</th>
+                        <th>Date of Approval</th>
+                        <th>Who Requested</th>
+                        <th>Who Approved</th>
+                        <th>Whitelisted Name</th>
+                        <th>Transaction ID</th>
+                        <th>End User Name</th>
+                        <th>Policy Number</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <template for:each={transactions} for:item="transaction">
+                        <tr key={transaction.id}>
+                            <td>{transaction.dateOfRequest}</td>
+                            <td>{transaction.dateOfApproval}</td>
+                            <td>{transaction.whoRequested}</td>
+                            <td>{transaction.whoApproved}</td>
+                            <td>{transaction.whitelistedName}</td>
+                            <td>{transaction.transactionId}</td>
+                            <td>{transaction.endUserName}</td>
+                            <td>{transaction.policyNumber}</td>
+                            <td>
+                                <lightning-button label="Remove from Local Whitelist" variant="destructive"
+                                    data-id={transaction.id} onclick={handleRemove}></lightning-button>
+                            </td>
+                        </tr>
+                    </template>
+                </tbody>
+            </table>
+        </div>
+    </lightning-card>
+</template>

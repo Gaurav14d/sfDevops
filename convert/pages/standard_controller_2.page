@@ -1,0 +1,14 @@
+<apex:page standardController="Shift">
+<apex:sectionHeader title="Shift" subtitle="New Shift"/>
+    <apex:form >
+    <apex:pageblock title="Shift">
+        <apex:pageBlockSection >
+        <apex:inputField value="{!Shift.StartTime}"/>
+            <apex:inputField value="{!Shift.Status}"/>
+            <apex:inputField value="{!Shift.EndTime}"/>
+            <apex:inputField value="{!Shift.Label}"/>
+        </apex:pageBlockSection>
+        </apex:pageblock>
+    </apex:form>
+    
+</apex:page>

@@ -1,0 +1,9 @@
+<apex:page id="MM" >
+<apex:form >
+    <apex:commandButton value="Click" action="https://d5g00000llag5eal-dev-ed.develop.lightning.force.com/lightning/setup/SetupOneHome/home?0.source=alohaHeader"/>
+    <apex:commandButton value="Disabled Button" disabled="false"/>
+    <apex:commandButton value="MyStyle" style="background:50px;width:24;color:blue;"/>
+    <apex:commandButton value="Rendered" rendered="false"/>
+    <apex:commandButton value="reload" reRender="MM"/>
+    </apex:form>
+</apex:page>

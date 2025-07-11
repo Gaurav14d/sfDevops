@@ -1,0 +1,11 @@
+<apex:page standardController="Account">
+    <script>
+    function openPage() {
+        var recordId = '{!Account.Id}';
+        window.location.href = url;
+    }
+    </script>
+    <apex:form >
+        <apex:commandButton value="Open VF Page" onclick="openPage(); return false;" />
+    </apex:form>
+</apex:page>

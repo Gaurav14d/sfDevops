@@ -1,0 +1,28 @@
+<apex:page controller="Dynamic_SOQL">
+    <apex:form >
+    	<apex:pageBlock >
+            <apex:pageBlockButtons >
+            	<apex:commandButton value="Search" action="{!search}"/>
+            </apex:pageBlockButtons>
+        	<apex:pageBlockSection columns="1">
+            	<apex:pageBlockSectionItem >
+                    <apex:outputlabel value="Name"/>
+                    <apex:InputText value="{!name}"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputlabel value="Industry"/>
+                    <apex:InputText value="{!industry}" />
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+            
+            {!query}
+        </apex:pageBlock>
+        <apex:pageBlock >
+        	<apex:pageblockTable value="{!accounts}" var="a">
+            	<apex:column value="{!a.name}"/>
+                <apex:column value="{!a.Industry}"/>
+                <apex:column value="{!a.Phone}"/>
+            </apex:pageblockTable>
+        </apex:pageBlock>
+    </apex:form>
+   </apex:page>

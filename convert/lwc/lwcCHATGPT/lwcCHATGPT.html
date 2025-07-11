@@ -1,0 +1,25 @@
+<template>
+    <lightning-card title="Chat GPT Example" icon-name="standard:account">
+        <div class="slds-card__header slds-grid"></div>
+
+        <!-- Spinner while loading -->
+        <div if:false={isLoaded} class="slds-card__body">
+            <lightning-spinner alternative-text="Loading..." variant="brand"></lightning-spinner>
+        </div>
+
+        <!-- Show message after loading -->
+        <div if:true={isLoaded} class="slds-card__body">
+            {message}
+        </div>
+
+        <!-- Input + Button -->
+        <div class="slds-grid slds-gutters slds-m-around_small">
+            <div class="slds-col slds-size_2-of-3">
+                <lightning-input type="text" label="Ask a Question" value={question} onchange={handleOnChange}></lightning-input>
+            </div>
+            <div class="slds-col slds-size_1-of-3">
+                <lightning-button class="slds-button" variant="brand" label="Ask to Me!" onclick={handleOnClick}></lightning-button>
+            </div>
+        </div>
+    </lightning-card>
+</template>

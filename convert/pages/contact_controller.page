@@ -1,0 +1,18 @@
+<apex:page standardController="Contact">
+    <apex:sectionHeader title="Contact" subtitle="NewContact"/>
+    <apex:form >
+        <apex:pageBlock title="Contact">
+            <apex:inlineEditSupport />
+            <apex:pageBlockbuttons location="bottom" dir="ltr">
+                <apex:commandButton value="save" action="{!save}"/> <!-- This will save the record-->
+                <apex:commandButton value="cancel" action="{!cancel}"/> <!-- This will return to homepage-->
+            </apex:pageBlockbuttons>
+            <apex:pageBlockSection >
+                <apex:outputField value="{!Contact.FirstName}"/>
+                    <apex:outputField value="{!Contact.LastName}"/>
+                    <apex:outputField value="{!Contact.Email}"/>
+                    <apex:outputField value="{!Contact.Phone}"/>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

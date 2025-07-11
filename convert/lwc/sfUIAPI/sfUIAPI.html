@@ -1,0 +1,91 @@
+<template>
+    <lightning-card title="Salesforce UI 1">
+        <div class="slds-table slds-table_bordered slds-table_cell-buffer slds-table_col-bordered">
+            <table class="slds-table slds-table_bordered slds-table_fixed-layout">
+                <thead>
+                    <tr class="slds-text-title_caps">
+                        <th scope="col">
+                            <div class="slds-truncate" title="Sender Name">Sender Name</div>
+                        </th>
+                        <th scope="col">
+                            <div class="slds-truncate" title="Receiver Name">Receiver Name</div>
+                        </th>
+                        <th scope="col">
+                            <div class="slds-truncate" title="Amount">Amount</div>
+                        </th>
+                        <th scope="col">
+                            <div class="slds-truncate" title="Reference">Reference</div>
+                        </th>
+                        <th scope="col">
+                            <div class="slds-truncate" title="Transaction timestamp">Transaction timestamp</div>
+                        </th>
+                        <th scope="col">
+                            <div class="slds-truncate" title="Payment Type"> Payment Type</div>
+                            </th>
+                              <th scope="col">
+                            <div class="slds-truncate" title="Transaction Id"> Transaction Id</div>
+                            </th>
+                              <th scope="col">
+                            <div class="slds-truncate" title="Receiver Id"> Receiver Id</div>
+                            </th>
+                              <th scope="col">
+                            <div class="slds-truncate" title="Phone Number"> Phone Number</div>
+                            </th>
+                              <th scope="col">
+                            <div class="slds-truncate" title="Ledger ID"> Ledger ID</div>
+                            </th>
+                              <th scope="col">
+                            <div class="slds-truncate" title="Virtual Account"> Virtual Account</div>
+                            </th>
+                              <th scope="col">
+                            <div class="slds-truncate" title="Policy Number"> Policy Number</div>
+                            </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <template for:each={paymentRecords} for:item="record">
+                        <tr key={record.id}>
+                            <td>
+                                <div class="slds-truncate" title={record.senderName}>{record.senderName}</div>
+                            </td>
+                            <td>
+                                <div class="slds-truncate" title={record.receiverName}>{record.receiverName}</div>
+                            </td>
+                            <td>
+                                <div class="slds-truncate" title={record.amount}>{record.amount}</div>
+                            </td>
+                            <td>
+                                <div class="slds-truncate" title={record.Reference}>{record.amountReference}</div>
+                            </td>
+                            <td>
+                                <div class="slds-truncate" title={record.Transactiontimestamp}>{record.Transactiontimestamp}</div>
+                            </td>
+                            <td>
+                                <div class="slds-truncate" title={record.PaymentType}>{record.paymentType}</div>
+                            </td>
+                            <td>
+                                <div class="slds-truncate" title={record.Transactionid}>{record.Transactionid}</div>
+                            </td>
+                            <td>
+                                <div class="slds-truncate" title={record.Receiverid}>{record.Receiverid}</div>
+                            </td>
+                            <td>
+                                <div class="slds-truncate" title={record.PhoneNumber}>{record.PhoneNumber}</div>
+                            </td>
+                            <td>
+                                <div class="slds-truncate" title={record.ledgerid}>{record.ledgerid}</div>
+                            </td>
+                            <td>
+                                <div class="slds-truncate" title={record.VirtualAccount}>{record.VirtualAccount}</div>
+                            </td>
+                            <td>
+                                <div class="slds-truncate" title={record.PolicyNumber}>{record.PolicyNumber}</div>
+                            </td>
+                        </tr>
+                    </template>
+                    
+                </tbody>
+            </table>
+        </div>
+    </lightning-card>
+</template>

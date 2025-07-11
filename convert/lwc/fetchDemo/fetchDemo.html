@@ -1,0 +1,8 @@
+<template>
+    <lightning-card>
+        <lightning-button label="Get Image" onclick={getImageHandler}></lightning-button>
+        <template if:true={imgURL}>
+            <img src={imgURL} style="max-width:300px;" />
+        </template>
+    </lightning-card>
+</template>

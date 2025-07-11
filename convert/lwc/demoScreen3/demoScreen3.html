@@ -1,0 +1,83 @@
+<template>
+    <!-- Main container -->
+    <div class="container">
+        <!-- Transaction Quarantine and Search Section -->
+        <div class="header-section">
+            <button class="slds-button slds-button_neutral">Transaction Quarantine</button>
+            <button class="slds-button slds-button_brand">Transaction Search</button>
+        </div>
+
+        <!-- Form section for searching by Ledger ID, Transaction ID, etc. -->
+        <div class="search-section">
+            <label for="ledgerId">Ledger ID</label>
+            <input type="text" id="ledgerId" name="ledgerId" onchange={handleInputChange} />
+
+            <label for="transactionId">Transaction ID</label>
+            <input type="text" id="transactionId" name="transactionId" onchange={handleInputChange} />
+
+            <label for="transactionDate">Transaction Date</label>
+            <input type="date" id="transactionDate" name="transactionDate" onchange={handleInputChange} />
+
+            <label for="virtualAccount">Virtual Account Number</label>
+            <input type="text" id="virtualAccount" name="virtualAccount" onchange={handleInputChange} />
+
+            <button class="slds-button slds-button_neutral" onclick={handleSearch}>Search</button>
+        </div>
+
+        <!-- Buttons for whitelists -->
+        <div class="whitelist-section">
+            <button class="slds-button slds-button_neutral">Global Whitelist</button>
+            <button class="slds-button slds-button_neutral">End User Whitelist</button>
+        </div>
+
+        <!-- Table for displaying transaction details -->
+        <table class="slds-table slds-table_bordered">
+            <thead>
+                <tr>
+                    <th>Sender Name</th>
+                    <th>Receiver Name</th>
+                    <th>Amount</th>
+                    <th>Reference</th>
+                    <th>Transaction Date/Time</th>
+                    <th>Payment Type</th>
+                    <th>Transaction ID</th>
+                    <th>Receiver ID</th>
+                    <th>Ledger ID</th>
+                    <th>Virtual Account</th>
+                    <th>Policy Number</th>
+                    <th>Transaction Outcome</th>
+                    <th>Staff Email</th>
+                    <th>Reason for Rejection</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Iterate over filtered records -->
+                <template if:true={filteredRecords}>
+                    <template for:each={filteredRecords} for:item="record">
+                        <tr key={record.transactionId}>
+                            <td>{record.senderName}</td>
+                            <td>{record.receiverName}</td>
+                            <td>{record.amount}</td>
+                            <td>{record.reference}</td>
+                            <td>{record.transactionDate}</td>
+                            <td>{record.paymentType}</td>
+                            <td>{record.transactionId}</td>
+                            <td>{record.receiverId}</td>
+                            <td>{record.ledgerId}</td>
+                            <td>{record.virtualAccount}</td>
+                            <td><a href="#">{record.policyNumber}</a></td>
+                            <td>{record.transactionOutcome}</td>
+                            <td>{record.staffEmail}</td>
+                            <td>{record.rejectionReason}</td>
+                        </tr>
+                    </template>
+                </template>
+                <template if:false={filteredRecords}>
+                    <tr>
+                        <td colspan="14">No Records Found</td>
+                    </tr>
+                </template>
+            </tbody>
+        </table>
+    </div>
+</template>

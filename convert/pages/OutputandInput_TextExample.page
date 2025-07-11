@@ -1,0 +1,15 @@
+<apex:page >
+    <apex:form >
+        <apex:outputLabel value="Enter Name"/>
+            <!-- Max Length We can Enter in the Input Box-->
+            Max Length:<apex:inputtext maxLength="5"/> <br/><br/>
+            <!-- Max Size This will specify the size of the input box-->
+            Max Size:<apex:inputtext Size="5"/> <br/><br/>
+            <!-- Disabled When set as true box will be visible in disable mode-->
+            Disabled Mode<apex:inputText Disabled="5"/> <br/><br/>
+            <!-- rendered Set as false then element will be hidden-->
+            Rendered:<apex:inputText rendered="true"/>
+            <!-- Style If u want to apply any css we can use css-->
+            Style:<apex:inputText style="background:black;color:pink"/>
+    </apex:form>
+</apex:page>

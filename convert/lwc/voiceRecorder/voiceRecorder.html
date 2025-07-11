@@ -1,0 +1,29 @@
+<template>
+    <lightning-card title="Voice Recorder">
+        <div class="recorder-container">
+            <lightning-button label="Start Recording" variant="brand" 
+                onclick={startRecording} 
+                disabled={isRecording}>
+            </lightning-button>
+            <lightning-button label="Stop Recording" variant="destructive" 
+                onclick={stopRecording} 
+                disabled={isStopButtonDisabled}>
+            </lightning-button>
+            <lightning-button label="Download Recording" variant="success" 
+                onclick={downloadRecording} 
+                disabled={isDownloadButtonDisabled}>
+            </lightning-button>
+        </div>
+        <template if:true={audioURL}>
+            <div class="audio-player">
+                <audio controls src={audioURL}></audio>
+            </div>
+        </template>
+         <template if:true={transcribedText}>
+            <div class="transcription">
+                <h3>Transcription:</h3>
+                <p>{transcribedText}</p>
+            </div>
+        </template>
+    </lightning-card>
+</template>

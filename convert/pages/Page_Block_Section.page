@@ -1,0 +1,24 @@
+<apex:page >
+<apex:form >
+    <apex:pageblock title="Account" tabstyle="Lead">
+        <apex:pageBlockSection title="FirstSection" columns="4" collapsible="false">
+            <apex:commandButton value="Copy"/>
+            <apex:commandButton value="save"/>
+            <apex:commandButton value="Delete"/>
+            This is pageblock <br/>
+            This is pageblock <br/>
+            This is pageblock <br/>
+        </apex:pageBlockSection>
+         <apex:pageBlockSection title="SecondSection" collapsible="false">
+            This is pageblock <br/>
+            This is pageblock <br/>
+            This is pageblock <br/>
+        </apex:pageBlockSection>
+         <apex:pageBlockSection title="ThirdSection">
+            This is pageblock <br/>
+            This is pageblock <br/>
+            This is pageblock <br/>
+        </apex:pageBlockSection>
+    </apex:pageblock>
+    </apex:form>
+</apex:page>

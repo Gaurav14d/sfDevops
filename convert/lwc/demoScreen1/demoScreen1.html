@@ -1,0 +1,94 @@
+<template>
+    <lightning-card class="centered-card-title">
+        <h3 class="slds-text-align_center slds-border_top"> Salesforce UI 2 </h3>
+        <div class="slds-box">
+            <div class="slds-grid slds-gutters">
+                <div class="slds-col">
+                    <span>
+                        <div class="slds-p-around_medium lgc-bg">
+                            <lightning-input type="text" label="Ledger ID"></lightning-input>
+                        </div>
+                    </span>
+                </div>
+                <div class="slds-col">
+                    <span>
+                        <!-- Group Transaction ID and Virtual Account in the same column -->
+                        <div class="slds-p-around_medium lgc-bg">
+                            <lightning-input type="text" label="Transaction ID"></lightning-input>
+                        </div>
+                        <div class="slds-p-around_medium lgc-bg">
+                            <lightning-input type="text" label="Virtual Account Number"></lightning-input>
+                        </div>
+                    </span>
+                </div>
+                <div class="slds-col">
+                    <span>
+                        <div class="slds-p-around_medium lgc-bg">
+                            <lightning-input type="Date" label="Transaction Date"></lightning-input>
+                        </div>
+                    </span>
+                </div>
+                <div class="slds-col slds-p-around_medium lgc-bg">
+                    <span>
+                        <lightning-combobox label="Rejected Reason" name="progress" value={value} placeholder="Compliance Rejected"
+                            options={options} onchange={handleChange}></lightning-combobox>
+                    </span>
+                </div>
+                <div class="slds-col paddingblock">
+                    <lightning-button label="Search" variant="brand" title="Non-primary action" onclick={handleClick}>
+                    </lightning-button>
+                </div>
+            </div>
+
+            <!-- Table Section -->
+            <lightning-layout multiple-rows>
+                <lightning-layout-item size="8" medium-device-size="6" large-device-size="8">
+                    <table class="slds-table_bordered slds-table_cell-buffer slds-table_col-bordered slds-box card-padding">
+                        <thead>
+                            <tr>
+                                <th style="width:1%" scope="col">Sender Name</th>
+                                <th scope="col">Receiver Name</th>
+                                <th scope="col">Amount</th>
+                                <th scope="col">Reference</th>
+                                <th scope="col">Transaction date/time</th>
+                                <th scope="col">Payment Type</th>
+                                <th scope="col">Transaction ID</th>
+                                <th scope="col">Receiver ID</th>
+                                <th scope="col">Phone Number</th>
+                                <th scope="col">Ledger ID</th>
+                                <th scope="col">Virtual Account</th>
+                                <th scope="col">Policy Number</th>
+                                <th scope="col">Transaction Outcome</th>
+                                <th scope="col">Staff Name</th>
+                                <th scope="col">Staff Email</th>
+                                <th scope="col">Reason for Rejection</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <template for:each={transactions} for:item="transaction">
+                                <tr key={transaction.Id}>
+                                    <td class="center-title">{transaction.senderName}</td>
+                                    <td class="center-title">{transaction.receiverName}</td>
+                                    <td class="center-title">{transaction.amount}</td>
+                                    <td class="center-title">{transaction.reference}</td>
+                                    <td class="center-title">{transaction.transactionTimestamp}</td>
+                                    <td class="center-title">{transaction.paymentType}</td>
+                                    <td class="center-title">{transaction.transactionId}</td>
+                                    <td class="center-title">{transaction.receiverId}</td>
+                                    <td class="center-title">{transaction.phoneNumber}</td>
+                                    <td class="center-title">{transaction.ledgerId}</td>
+                                    <td class="center-title">{transaction.virtualAccount}</td>
+                                    <td class="center-title">{transaction.policyNumber}</td>
+                                    <td class="center-title">{transaction.transactionOutcome}</td>
+                                    <td class="center-title">{transaction.staffName}</td>
+                                    <td class="center-title">{transaction.staffEmail}</td>
+                                    <td class="center-title">{transaction.reasonForRejection}</td>
+                                </tr>
+                            </template>
+                        </tbody>
+                    </table>
+                </lightning-layout-item>
+            </lightning-layout>
+        </div>
+    </lightning-card>
+</template>

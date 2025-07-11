@@ -1,0 +1,8 @@
+<apex:page standardController="Account" recordSetVar="rows">
+    <apex:dataTable value="{!rows}" var="a" width="1000px" rules="All" frame="box">
+        <apex:column value="{!a.Name}" headervalue="Name"/>
+        <apex:column value="{!a.Phone}" headervalue="Phone"/>
+        <apex:column value="{!a.Rating}" headervalue="Rating"/>
+        <apex:column value="{!a.Industry}" headervalue="Industry"/>
+    </apex:dataTable>
+</apex:page>

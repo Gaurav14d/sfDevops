@@ -1,0 +1,10 @@
+<apex:page >
+    <apex:form >
+    <apex:pageblock title="Contact">
+        <apex:pageBlockButtons location="both" dir="ltr">
+            <apex:commandButton value="save"/>
+         <apex:commandButton value="delete"/>
+            </apex:pageBlockButtons>
+        </apex:pageblock>
+    </apex:form>
+</apex:page>

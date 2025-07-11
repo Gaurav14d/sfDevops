@@ -1,0 +1,53 @@
+<template>
+    <lightning-card icon-name="standard:account" variant="base">
+        <div slot="title">
+            Product Details
+        </div>
+        <div slot="actions">
+            <lightning-button variant="Neutral" label="Cart" onclick={handleCartClick}></lightning-button>
+        </div>
+        <div slot="footer">
+        </div>
+            <div class="slds-m-top_x-small slds-m-bottom_medium slds-m-horizontal_none slds-box slds-p-around_none">
+                <lightning-layout multiple-rows="true">
+                    
+
+                    <template if:true={screen1}>
+                        <template for:each={products} for:item="product">
+
+                            <lightning-layout-item key={product.Id} size="4" padding="around-small">
+                                <div class="custom-box slds-box slds-p-around_medium slds-text-align_center">
+                                    <img src={product.image} alt={product.Name}>
+                                </div>
+                                <div class="custom-box slds-box slds-p-around_medium slds-text-align_center">
+                                    <p>Product Name: {product.Name}</p>
+                                </div>
+                                <div class="custom-box slds-box slds-p-around_medium slds-text-align_center">
+                                    <p>Price: {product.price}</p>
+                                </div>
+                                <div class="custom-box slds-box slds-p-around_medium slds-text-align_center">
+                                    <p>Quantity: {product.quantity}</p>
+                                    <lightning-button-group>
+                                        <lightning-button label="-" data-id={product.Id} onclick={decrementQuantity}></lightning-button>
+                                        <lightning-button label="+" data-id={product.Id} onclick={incrementQuantity}></lightning-button>
+                                    </lightning-button-group>
+                                    <br>
+                                    <lightning-button-group>
+                                        <lightning-button label="Add to Cart" variant="brand" onclick={handlePrevious}></lightning-button>
+                                    </lightning-button-group>
+                                </div>
+                            </lightning-layout-item>    
+                        </template>
+                    </template>
+                </lightning-layout>
+                <lightning-button-group>
+                    <lightning-button label="Previous" onclick={handlePrevious}></lightning-button>
+                    <lightning-button label="Next" onclick={handleNext}></lightning-button>
+                </lightning-button-group>
+        
+
+
+
+        </div>
+    </lightning-card>
+</template>

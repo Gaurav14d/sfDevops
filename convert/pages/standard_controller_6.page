@@ -1,0 +1,21 @@
+<apex:page standardController="Asset">
+    <apex:sectionHeader title="Asset Edit" subtitle="New Asset"/>
+    <apex:form >
+        <apex:pageblock title="Asset Edit">
+            <apex:pageBlockButtons location="both" dir="ltr">
+                <apex:commandButton value="Save"/>
+                  <apex:commandButton value="Save&New"/>
+                  <apex:commandButton value="Cancel"/>
+                </apex:pageBlockButtons>
+                <apex:pageblock title="Asset Information">
+                    <apex:pageBlockSection >
+                    <apex:inputfield value="{!Asset.Name}"/>
+                     <apex:inputfield value="{!Asset.Price}"/>
+                     <apex:inputfield value="{!Asset.Status}"/>
+                    <apex:inputfield value="{!Asset.InstallDate}"/>
+                    </apex:pageBlockSection>
+                </apex:pageblock>
+            
+        </apex:pageblock>
+    </apex:form>
+</apex:page>

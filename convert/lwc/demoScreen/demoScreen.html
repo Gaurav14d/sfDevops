@@ -1,0 +1,82 @@
+<template>
+    <lightning-card title="Salesforce UI 1" icon-name="standard:account">
+        <div class="slds-m-around_medium">
+            <div class="action-buttons">
+                <button class="action-button" onclick={handleDecline}>Decline</button>
+                <button class="action-button" onclick={handleAccept}>Accept</button>
+                <button class="action-button" onclick={handleAcceptAndWhitelist}>Accept & Whitelist</button>
+            </div>
+            <div class="table-container">
+                <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Sender Name</th>
+                            <th>Receiver Name</th>
+                            <th>Amount</th>
+                            <th>Customer Reference</th>
+                            <th>Bank Reference</th>
+                            <th>Transaction Timestamp</th>
+                            <th>Payment Type</th>
+                            <th>Transaction ID</th>
+                            <th>Receiver ID</th>
+                            <th>Ledger ID</th>
+                            <th>Virtual Account</th>
+                            <th>Policy Number</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <template for:each={transactions} for:item="transaction">
+                            <tr key={transaction.id}>
+                                <td>
+                                    <lightning-input type="checkbox" onchange={handleCheckboxChange} data-id={transaction.id} checked={transaction.selected}></lightning-input>
+                                </td>
+                                <td>{transaction.senderName}</td>
+                                <td>{transaction.receiverName}</td>
+                                <td>{transaction.amount}</td>
+                                <td>{transaction.customerReference}</td>
+                                <td>{transaction.bankReference}</td>
+                                <td>{transaction.transactionTimestamp}</td>
+                                <td>{transaction.paymentType}</td>
+                                <td>{transaction.transactionId}</td>
+                                <td>{transaction.receiverId}</td>
+                                <td>{transaction.ledgerId}</td>
+                                <td>{transaction.virtualAccount}</td>
+                                <td>{transaction.policyNumber}</td>
+                            </tr>
+                        </template>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </lightning-card>
+
+    <!-- Modal for decline reasons -->
+    <template if:true={isDeclineModalOpen}>
+        <section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <header class="slds-modal__header">
+                    <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={closeDeclineModal}>
+                        <lightning-icon icon-name="utility:close" alternative-text="close" size="small"></lightning-icon>
+                        <span class="slds-assistive-text">Close</span>
+                    </button>
+                    <h2 class="slds-text-heading_medium">Select Decline Reason</h2>
+                </header>
+                <div class="slds-modal__content slds-p-around_medium">
+                    <lightning-combobox
+                        label="Decline Reason"
+                        placeholder="Select a reason"
+                        options={declineOptions}
+                        value={selectedDeclineReason}
+                        onchange={handleDeclineReasonChange}>
+                    </lightning-combobox>
+                </div>
+                <footer class="slds-modal__footer">
+                    <button class="slds-button slds-button_neutral" onclick={closeDeclineModal}>Cancel</button>
+                    <button class="slds-button slds-button_brand" onclick={proceedWithDecline}>Confirm</button>
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+</template>

@@ -1,0 +1,17 @@
+<apex:page >
+    <apex:pageBlock >
+    		This is a pageblock 
+    </apex:pageBlock>
+    <apex:pageBlock title="Account">
+    		This is a pageblock 
+    </apex:pageBlock>
+    <apex:pageBlock title="Account"  tabStyle="Opportunity">
+    		This is a pageblock 
+    </apex:pageBlock>
+    <apex:pageBlock title="Account" helpTitle="needHelp??" helpUrl="/apex/page">
+    		This is a pageblock 
+    </apex:pageBlock>
+     <apex:pageBlock title="Account" rendered="false">
+    		This is a pageblock 
+    </apex:pageBlock>
+</apex:page>
