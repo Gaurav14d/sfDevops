@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Places__c</fullName>
+    <label>Places</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Nandi Hills</fullName>
+                <default>false</default>
+                <label>Nandi Hills</label>
+            </value>
+            <value>
+                <fullName>Bangalore palace</fullName>
+                <default>false</default>
+                <label>Bangalore palace</label>
+            </value>
+            <value>
+                <fullName>Marina Beach</fullName>
+                <default>false</default>
+                <label>Marina Beach</label>
+            </value>
+            <value>
+                <fullName>RK Beach</fullName>
+                <default>false</default>
+                <label>RK Beach</label>
+            </value>
+            <value>
+                <fullName>Banjara Hills</fullName>
+                <default>false</default>
+                <label>Banjara Hills</label>
+            </value>
+            <value>
+                <fullName>Hadapsar</fullName>
+                <default>false</default>
+                <label>Hadapsar</label>
+            </value>
+            <value>
+                <fullName>Shivaji Nagar</fullName>
+                <default>false</default>
+                <label>Shivaji Nagar</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

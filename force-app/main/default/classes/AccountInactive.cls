@@ -10,8 +10,7 @@ public with sharing class AccountInactive {
         List<Account> accountsToUpdate = new List<Account>();
         List<Task> tasksToCreate = new List<Task>();
         List<Logger__c> loggers = new List<Logger__c>();
-        // for Testing purposes
-        // List<Account> accounts = [SELECT Id, Name, Active__c FROM Account];
+        
         // Query to get all active accounts
         List<Account> accounts = [SELECT Id, OwnerId FROM Account WHERE Active__c = 'Yes'];
         Set<Id> accountIds = new Set<Id>();
