@@ -1,0 +1,72 @@
+<template>
+    <lightning-card title="Salesforce UI 4" icon-name="custom:custom63">
+       <div class="slds-m-top_medium">
+            <div class="slds-grid slds-wrap slds-gutters">
+                <!-- Sender Name Field -->
+                <div class="slds-col slds-size_3-of-12">
+                    <lightning-input label="Sender Name" value={senderName} onchange={handleInputChange}></lightning-input>
+                </div>
+                <!-- Requested By Field -->
+                <div class="slds-col slds-size_3-of-12">
+                    <lightning-input label="Requested By" value={requestedBy} onchange={handleInputChange}></lightning-input>
+                </div>
+                <!-- Who Approved Field -->
+                <div class="slds-col slds-size_3-of-12">
+                    <lightning-input label="Who Approved" value={whoApproved} onchange={handleInputChange}></lightning-input>
+                </div>
+                <!-- Search Button -->
+                <div class="slds-col slds-size_3-of-12 slds-align-middle"> <!-- Aligning in the middle -->
+                    <lightning-button label="Search" variant="brand" onclick={handleSearch}></lightning-button>
+                </div>
+            </div>
+        </div>
+        <!-- Table Section -->
+        <div class="slds-m-top_medium">
+            <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+                <thead>
+                    <tr>
+                        <th>Date of Request</th>
+                        <th>Date of Approval</th>
+                        <th>Who Requested</th>
+                        <th>Who Approved</th>
+                        <th>Whitelisted Name</th>
+                        <th>Status</th>
+                        <th>Disabled On</th>
+                        <th>Disabled By</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <template for:each={transactions} for:item="transaction">
+                        <tr key={transaction.id}>
+                            <td>{transaction.dateOfRequest}</td>
+                            <td>{transaction.dateOfApproval}</td>
+                            <td>{transaction.whoRequested}</td>
+                            <td>{transaction.whoApproved}</td>
+                            <td>{transaction.whitelistedName}</td>
+                            <td>{transaction.status}</td>
+                            <td>{transaction.disabledOn}</td>
+                            <td>{transaction.disabledBy}</td>
+                            <td>
+                                <lightning-button label="Remove from Global Whitelist" variant="destructive" 
+                                    data-id={transaction.id} 
+                                    onclick={handleRemove}></lightning-button>
+                            </td>
+                        </tr>
+                    </template>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Whitelist Section -->
+        <div class="slds-m-top_medium">
+            <div class="slds-grid slds-gutters">
+                <div class="slds-col slds-size_6-of-12">
+                    <lightning-input label="Whitelist a New Global Sender" value={newSender} onchange={handleInputChange}></lightning-input>
+                </div>
+                <div class="slds-col slds-size_6-of-12 slds-grid slds-grid_align-end">
+                    <lightning-button label="Whitelist" variant="brand" onclick={handleWhitelist}></lightning-button>
+                </div>
+            </div>
+        </div>
+    </lightning-card>
+</template>

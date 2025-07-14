@@ -1,0 +1,34 @@
+<apex:page standardController="Opportunity" recordSetVar="items">
+    <apex:form >
+    <apex:tabPanel >
+        <apex:tab label="PageBlockTable" labelWidth="100px">
+            <apex:pageblock >
+                <apex:pageBlockTable value="{!items}" var="C">
+             <apex:inputfield value="{!Opportunity.Name}"/>
+                  <apex:inputfield value="{!Opportunity.Amount}"/>
+                 <apex:inputfield value="{!Opportunity.Type}"/>
+                 <apex:inputfield value="{!Opportunity.StageName}"/> 
+                    </apex:pageBlockTable>
+            </apex:pageblock>
+        </apex:tab>
+        <apex:tab label="DataTable" labelWidth="100px">
+            <apex:DataTable value="{!items}" var="C">
+   <apex:inputfield value="{!Opportunity.Name}"/>
+                  <apex:inputfield value="{!Opportunity.Amount}"/>
+                 <apex:inputfield value="{!Opportunity.Type}"/>
+                 <apex:inputfield value="{!Opportunity.StageName}"/> 
+               </apex:DataTable>
+        </apex:tab>
+        <apex:tab label="DataList" labelwidth="100px">
+            <apex:DataList value="{!items}" var="C">
+            {!Opportunity.Name}
+            </apex:DataList>
+        </apex:tab>
+        <apex:tab label="Repeat" labelWidth="100px">
+            <apex:Repeat value="{!items}" var="C">
+            {!Opportunity.Name}
+            </apex:Repeat>
+        </apex:tab>
+    </apex:tabPanel>
+        </apex:form>
+</apex:page>

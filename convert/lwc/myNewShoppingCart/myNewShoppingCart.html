@@ -1,0 +1,60 @@
+<template>
+<template if:true={firstScreen}>
+    <!-- Shopping Lighnting Card -->
+<lightning-card>
+    <!-- Card header -->
+<div slot="actions">
+    <lightning-button-icon size="large" icon-name="standard:webcart" variant="brand" alternative-text="My Cart" title="cart" onclick={handleClick}></lightning-button-icon>
+</div>
+<!-- Card footer -->
+<div slot="footer">
+    <lightning-button variant="brand" label="Previous" title="Previous" onclick={handleClick} disabled={handleDisablePrevious} class="slds-m-left_x-small"></lightning-button>
+    <lightning-button variant="brand" label="Next" title="Next" onclick={handleClick} disabled={handleDisableNext} class="slds-m-left_x-small"></lightning-button>
+</div>
+<!-- Layout Body  -->
+<div>
+        <div class="slds-box slds-p-around_none slds-m-top_x-small slds-m-bottom_medium slds-m-horizontal_none">
+            <!-- product layout -->
+            <lightning-layout
+            horizontal-align="center"
+            multiple-rows="true"
+            pull-to-boundary="small"
+            vertical-align="start"
+            >
+                <template if:true={productToDisplay}>
+                    <template for:each={productToDisplay} for:item="productRecord">
+                            <lightning-layout-item padding="around-small" key={productRecord.id} size="3" class="slds-box slds-m-around_small" style="background-color: rgb(255, 255, 255)">
+                            
+                                <div >
+                                    <img src={productRecord.image} style="width: 300px; height: 200px"/>
+                                </div>
+                                <div class="slds-border_top"><br><br>
+                                    Produt Title <Br>
+                                    <h1 class="slds-text-heading_medium slds-m-bottom_medium">
+                                        {productRecord.name}
+                                    </h1>
+                                    Product Price<Br>
+                                    <lightning-formatted-number value={productRecord.price} class="slds-text-heading_medium slds-m-bottom_medium">
+                                    </lightning-formatted-number>
+                                </div>
+                                <div class="slds-p-top_medium slds-p-bottom_medium slds-align_absolute-center">
+                                    <lightning-button-icon size="small" icon-name="utility:dash" variant="brand-outline" alternative-text="Remove" data-id={productRecord.Id} title="Remove" class="slds-m-left_xx-small" onclick={handleClick}></lightning-button-icon>
+                                    <b> {productRecord.quantity} </b>
+                                    <lightning-button-icon size="small" icon-name="utility:add" variant="brand-outline" alternative-text="Add" data-id={productRecord.Id} title="Add" class="slds-m-left_xx-small" onclick={handleClick}></lightning-button-icon>
+                                </div> 
+                                <div class="slds-align_absolute-left slds-align_absolute-center">
+                                    <lightning-button variant="brand" label="Add To Cart" data-id={productRecord.Id} value={productRecord.quantity} title="AddToCart" name={productRecord.name} onclick={handleClick} class="slds-m-left_x-small"></lightning-button>
+                                </div>   
+
+                            </lightning-layout-item>  
+                    </template>
+                </template>
+            </lightning-layout>
+        </div>
+</div>
+</lightning-card>
+</template> 
+<template if:true={secondScreen}>
+<div><c-new-checkout-page cart-list={addToCart}></c-new-checkout-page></div>
+</template>
+</template>

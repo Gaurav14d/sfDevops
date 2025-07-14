@@ -1,0 +1,19 @@
+<template>
+    <lightning-card title="Account Data">
+        <template if:true={allData.length}>
+            <lightning-datatable
+                key-field="Id"
+                data={allData}
+                columns={columns}>
+            </lightning-datatable>
+            <lightning-button
+                variant="brand"
+                label="Export Data"
+                onclick={exportData}>
+            </lightning-button>
+        </template>
+        <template if:false={allData.length}>
+            <p>No data available.</p>
+        </template>
+    </lightning-card>
+</template>

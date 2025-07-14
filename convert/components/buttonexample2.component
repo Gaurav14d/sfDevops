@@ -1,0 +1,6 @@
+<apex:component >
+    student name<br/>
+    student age<br/>
+    student class<br/>
+                 
+</apex:component>

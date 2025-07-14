@@ -1,0 +1,15 @@
+<apex:page standardController="Account">
+    <script>
+    function redirectToVF() {
+        var recordId = new URLSearchParams(window.location.search).get('recordId');
+        if (window.location.href.includes('lightning.force.com')) {
+            // Lightning Experience
+            window.location.href = '/apex/LightningVFPage?recordId=' + recordId;
+        } else {
+            // Classic Experience
+            window.location.href = '/apex/ClassicVFPage?recordId=' + recordId;
+        }
+    }
+    window.onload = redirectToVF;
+    </script>
+</apex:page>

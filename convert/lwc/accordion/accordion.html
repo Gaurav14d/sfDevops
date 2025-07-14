@@ -1,0 +1,23 @@
+<template>
+    <lightning-card title = "Accordion lwc Example">
+        <lightning-accordion allow-multiple-sections-open active-section-name={activeSections}>
+            <lightning-accordion-section name="html" label="What is HTML?">
+                <lightning-button-menu slot="actions"
+                alternative-text="Show menu"
+                icon-size="x-small"
+                menu-alignment="right">
+                <lightning-menu-item value="New" label="Menu Item One"></lightning-menu-item>
+                <lightning-menu-item value="Edit" label="Menu Item Two"></lightning-menu-item>
+            </lightning-button-menu>
+                html is a hyper textmarkup language
+            </lightning-accordion-section>
+            <lightning-accordion-section name="css" label="What is CSS">
+                css is cascading style sheets
+            </lightning-accordion-section>
+            <lightning-accordion-section name="js" label="What is JS">
+                js is javascript
+            </lightning-accordion-section>
+        </lightning-accordion>
+        <div>{activeSection}</div>
+    </lightning-card>
+</template>

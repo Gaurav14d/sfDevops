@@ -1,0 +1,15 @@
+<apex:page standardController="Lead">
+    <apex:sectionHeader title="Lead" subtitle="NewLead"/>
+    <apex:form >
+    <apex:pageBlock title="Lead">
+        <apex:pageBlockSection >
+            <apex:inputField value="{!Lead.Title}"/>
+             <apex:inputField value="{!Lead.Fax}"/>
+             <apex:inputField value="{!Lead.Email}"/>
+            <apex:inputField value="{!Lead.Industry}"/>
+        </apex:pageBlockSection>
+        
+        </apex:pageBlock>
+    </apex:form>
+  
+</apex:page>

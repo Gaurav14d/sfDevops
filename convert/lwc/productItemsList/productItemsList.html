@@ -1,0 +1,49 @@
+<template>
+    <!-- Products screen -->
+    <template if:true={isProductsScreen}>
+        <div class="products-container">
+            <header class="products-header">
+                <h2 class="products-title">Browse Our Collection</h2>
+                <button class="cart-button" onclick={handleCartClick}>
+                    <lightning-icon icon-name="utility:shopping_cart" size="small"></lightning-icon>
+                    <span>Cart</span>
+                </button>
+            </header>
+            <div class="products-grid">
+                <template for:each={products} for:item="product">
+                    <div key={product.id} class="product-item">
+                        <img src={product.image} alt={product.name} class="product-image"/>
+                        <div class="product-details">
+                            <h3 class="product-name">{product.name}</h3>
+                            <p class="product-price">Price: ${product.price}</p>
+                        </div>
+                        <div class="product-actions">
+                            <button class="action-button" onclick={handleRemoveClick} data-id={product.id}>
+                                <lightning-icon icon-name="utility:minus" size="small"></lightning-icon>
+                            </button>
+                            <span class="product-quantity">{product.quantity}</span>
+                            <button class="action-button" onclick={handleAddClick} data-id={product.id}>
+                                <lightning-icon icon-name="utility:add" size="small"></lightning-icon>
+                            </button>
+                            <button class="add-to-cart-button" onclick={handleAddToCartClick} data-id={product.id} value={product.quantity}>
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </template>
+            </div>
+            <footer class="products-footer">
+                <button class="navigation-button" onclick={handlePreviousClick}>Previous</button>
+                <button class="navigation-button" onclick={handleNextClick}>Next</button>
+            </footer>
+        </div>
+    </template>
+    
+    <!-- Checkout screen -->
+    <template if:true={isCheckoutScreen}>
+        <div class="checkout-container">
+            <h2 class="checkout-title">Order Summary</h2>
+            <c-new-checkout-page cart-list={cartItems}></c-new-checkout-page>
+        </div>
+    </template>
+</template>

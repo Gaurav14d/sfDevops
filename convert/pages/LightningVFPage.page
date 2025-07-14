@@ -1,0 +1,12 @@
+<apex:page standardController="Account" lightningStylesheets="true">
+    <apex:slds /> 
+    <script>
+    function openPage() {
+        var recordId = '{!Account.Id}';
+        window.location.href = url;
+    }
+    </script>
+    <apex:form >
+        <apex:commandButton value="Open VF Page" onclick="openPage(); return false;" />
+    </apex:form>
+</apex:page>

@@ -1,0 +1,5 @@
+<apex:page rendered="True">
+    Student name <br/>
+     Student class <br/>
+     Student age <br/>
+</apex:page>

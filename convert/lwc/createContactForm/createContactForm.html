@@ -1,0 +1,57 @@
+<template>
+<lightning-card>
+    <div class="container-fluid">
+        <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+            <thead>
+                <tr class="slds-text-title_caps">
+                    <th scope="col">
+                        <div class="slds-truncate"></div>
+                    </th>
+                    <th scope="col">
+                        <div class="slds-truncate" title="First Name">First Name</div>
+                    </th>
+                    <th scope="col">
+                        <div class="slds-truncate" title="Last Name">Last Name</div>
+                    </th>
+                    <th scope="col">
+                        <div class="slds-truncate" title="Phone">Phone</div>
+                    </th>
+                    <th scope="col">
+                        <div class="slds-truncate" title="Action">Action</div>
+                    </th>         
+                </tr>
+            </thead>
+            <tbody>
+                <template for:each={contactList} for:item="con" for:index="index">
+                    <tr key={con.Id}>
+                        <td>{con.index}</td>
+                        <td>
+                            <lightning-input label="First Name" value={con.FirstName} onchange={handleFirstNameChange} data-index={index}></lightning-input>
+                        </td>
+                        <td>
+                            <lightning-input label="Last Name" value={con.LastName} onchange={handleLastNameChange} data-index={index}></lightning-input>
+                        </td>
+                        <td>
+                            <lightning-input label="Phone" value={con.Phone} onchange={handlePhoneChange} data-index={index}></lightning-input>
+                        </td>
+                        <td>
+                            <template if:true={con.showDeleteButton}>
+                                <a onclick={removeRow} data-index={index}>
+                                    <lightning-icon icon-name="utility:delete" size="small"></lightning-icon>
+                                    <span class="slds-assistive-text">Delete</span>
+                                </a>
+                            </template>
+                        </td>
+                    </tr>
+                </template>
+            </tbody>
+        </table>
+        <div class="slds-align_absolute-center slds-p-top_small">
+            <lightning-button label="Save" onclick={saveRecords}></lightning-button>
+            <h1 class="slds-page-header__title">
+                <lightning-button-icon icon-name="utility:add" size="large" variant="bare" alternative-text="Add" onclick={addRow}></lightning-button-icon>
+            </h1>
+        </div>
+    </div>
+</lightning-card>
+</template>
