@@ -25,7 +25,7 @@ export default class CsvDataExporter extends LightningElement {
     }
 
     get checkRecord() {
-        return this.accountData.length > 0 ? false : true; 
+        return this.accountData.lenght > 0 ? false : true;
     }
 
     clickHandler() {
@@ -50,6 +50,7 @@ export default class CsvDataExporter extends LightningElement {
         let csvFile = csvHeader + "\n" + csvBody.join("\n");
         return csvFile;
     }
+
 
     createLinkForDownload(csvFile) {
         const downLink = document.createElement("a");
