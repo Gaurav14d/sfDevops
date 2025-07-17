@@ -3,7 +3,7 @@ import getAccountList from '@salesforce/apex/AccountLWCController.getAccountList
 //import { loadStyle } from 'lightning/platformResourceLoader';
 //import styles from '@salesforce/resourceUrl/cssdatatable';
 
-export default class AccountCustomReport  extends LightningElement {
+export default class AccountCustomReport extends LightningElement {
     accounts;
     error;
     isLibLoaded = false;
@@ -21,8 +21,6 @@ export default class AccountCustomReport  extends LightningElement {
         { label: 'Billing State', fieldName: 'BillingState' },
         { label: 'Billing Country', fieldName: 'BillingCountry' }
     ];
-
-    
 
     @wire(getAccountList)
     wiredAccounts({ data, error }) {
