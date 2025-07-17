@@ -77,7 +77,7 @@ export default class voiceRecorder extends LightningElement {
             this.transcribedText = transcript;
         };
 
-        this.speechRecognition.onerror = (event) => {
+        this.speechRecognition.oneError = (event) => {
             console.error('Speech recognition error:', event.error);
         };
 
