@@ -18,6 +18,7 @@ export default class voiceRecorder extends LightningElement {
     startRecording() {
         navigator.mediaDevices.getUserMedia({ audio: true })
             .then((stream) => {
+                debugger;
                 this.mediaRecorder = new MediaRecorder(stream);
                 this.audioChunks = [];
                 this.transcribedText = ''; 
